@@ -1,0 +1,28 @@
+extends Node2D
+
+var coins = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_KillPlane_body_entered(body):
+	$Player.position.x = 30
+	$Player.position.y = 200
+
+
+
+func _on_Player_coin_got():
+	coins += 1
+	$CanvasLayer/Coins.text = "Coins:" + str(coins)
+
+
+func _on_win_body_entered(body):
+	$CanvasLayer/Label.show()
+	
